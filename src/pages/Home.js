@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -301,25 +300,20 @@ function Home() {
   const deletingSpeed = 40;
   const pauseTime = 2000;
 
-  const goToGitHub = () => {
-    window.open("https://github.com/hwnsng", "_blank");
-  };
-  const goToVelog = () => {
-    window.open("https://velog.io/@hwnsng/posts", "_blank");
-  };
-
   const [scrollIndex, setScrollIndex] = useState(0);
 
-  const handleScroll = (direction) => {
-    setScrollIndex((prevIndex) => {
-      const newIndex = prevIndex + direction;
-      if (newIndex >= 0 && newIndex < sections.current.length) {
-        scrollToSection(newIndex);
-        return newIndex;
-      }
-      return prevIndex;
-    });
-  };
+const handleScroll = (direction) => {
+  setScrollIndex((prevIndex) => {
+    const newIndex = prevIndex + direction;
+    if (newIndex >= 0 && newIndex < sections.current.length) {
+      scrollToSection(newIndex);
+      return newIndex;
+    }
+    return prevIndex;
+  });
+  console.log(scrollIndex);
+};
+
 
   
 
@@ -464,17 +458,17 @@ function Home() {
             Contact
           </AcTopBox>
           <ConBox>
-            <ConMBox style={{marginRight: '50px'}} onClick={goToGitHub}>
+            <ConMBox style={{marginRight: '50px'}}>
               <ConMTop>
-                <img src={Github} style={{height: '90px', marginTop: '50px',}}></img>
+                <img src={Github} style={{height: '90px', marginTop: '50px',}} alt="깃허브 로고"></img>
               </ConMTop>
               <ConMBody>
                 <Link href="https://github.com/hwnsng">github.com/hwnsng</Link>
               </ConMBody>
             </ConMBox>  
-            <ConMBox onClick={goToVelog}>
+            <ConMBox>
               <ConMTop>
-                <img src={Velog} style={{height: '90px', marginTop: '50px'}}></img>
+                <img src={Velog} style={{height: '90px', marginTop: '50px'}} alt="벨로그 로고"></img>
               </ConMTop>
               <ConMBody>
                 <Link href="https://velog.io/@hwnsng/posts">velog.io/@hwnsng</Link>

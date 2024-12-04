@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import DevLog from '../img/developLog.png';
@@ -128,8 +127,6 @@ function Project() {
   const scrollToSection = (index) => {
     sections.current[index].scrollIntoView({ behavior: 'smooth' });
   };
-
-  const navigate = useNavigate();
 
   const NoResult = () => {
     alert("아직 배포가 되지 않은 컨텐츠입니다.");
