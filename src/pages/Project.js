@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import DevLog from '../img/developLog.png';
@@ -122,6 +123,7 @@ const ArrowButton = styled.button`
 `;
 
 function Project() {
+  const navigate = useNavigate();
   const sections = useRef([]);
 
   const scrollToSection = (index) => {
@@ -131,6 +133,11 @@ function Project() {
   const NoResult = () => {
     alert("아직 배포가 되지 않은 컨텐츠입니다.");
   }
+
+  const PortFolio = () => {
+    navigate('/');
+    window.location.reload();
+  };
 
   return (
     <>
@@ -160,7 +167,7 @@ function Project() {
                   Stack
                 </h1>
                 <p>React js / styled-component</p>
-                <OverlayButton onClick={NoResult}>LEARN MORE</OverlayButton>
+                <OverlayButton onClick={PortFolio}>LEARN MORE</OverlayButton>
               </OverlayContent>
             </Overlay>
           </MainBox>
